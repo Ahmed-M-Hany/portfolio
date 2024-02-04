@@ -30,7 +30,7 @@ class HeaderMobile extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                 horizontal: 10,
               ),
-              backgroundColor: CustomColor.yellowPrimary,
+              backgroundColor: CustomColor.blue,
               enableFeedback: true,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(100),

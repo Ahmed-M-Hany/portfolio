@@ -12,7 +12,7 @@ class Logo extends StatelessWidget {
     return DefaultTextStyle(
       style:TextStyle(
         fontFamily: 'NextArt',
-        color: CustomColor.yellowSecondary,
+        color: CustomColor.blue,
         fontWeight: FontWeight.w700,
         fontSize: 18.sp,
       ),

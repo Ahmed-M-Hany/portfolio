@@ -26,11 +26,10 @@ class HeaderDesktop extends StatelessWidget {
       child: Row(
         children: [
           //download cv button
-          //on hover change background color
           TextButton(
             onPressed: () {},
             style: TextButton.styleFrom(
-              backgroundColor: CustomColor.yellowPrimary,
+              backgroundColor: CustomColor.blue,
               enableFeedback: true,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(100),
