@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../constants/colors.dart';
 import 'logo.dart';
@@ -25,7 +26,11 @@ class HeaderMobile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           TextButton(
-            onPressed: () {},
+            onPressed: () async {
+              //use url launcher to launch the whatsapp link
+              await launchUrl(Uri.parse(
+                  "https://drive.google.com/file/d/1ZzOqeCgHyW7yPB7R6nGE8gAoVwdy8X5Z/view?usp=sharing"));
+            },
             style: TextButton.styleFrom(
               padding: const EdgeInsets.symmetric(
                 horizontal: 10,

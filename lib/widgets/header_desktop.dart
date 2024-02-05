@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/widgets/logo.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../constants/colors.dart';
 import '../constants/nav_items_strings.dart';
@@ -27,7 +28,11 @@ class HeaderDesktop extends StatelessWidget {
         children: [
           //download cv button
           TextButton(
-            onPressed: () {},
+            onPressed: () async {
+              //use url launcher to launch the whatsapp link
+              await launchUrl(Uri.parse(
+                  "https://drive.google.com/file/d/1ZzOqeCgHyW7yPB7R6nGE8gAoVwdy8X5Z/view?usp=sharing"));
+            },
             style: TextButton.styleFrom(
               backgroundColor: CustomColor.blue,
               enableFeedback: true,
