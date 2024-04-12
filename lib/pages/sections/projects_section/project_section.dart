@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio/constants/projects_data.dart';
 import 'package:portfolio/pages/sections/projects_section/cubit/project_index_cubit.dart';
@@ -10,16 +11,32 @@ import '../../../constants/colors.dart';
 class Projects extends StatelessWidget {
   const Projects({super.key});
 
+  List<BlocProvider> _createProjectsList(){
+    List<BlocProvider> result=[];
+
+    for (int i = 0; i < ProjectsData.projects.length; i++) {
+
+      result.add(BlocProvider<ProjectIndexCubit>(
+        create: (context) => ProjectIndexCubit(i),
+        child: const ProjectsCarouselItem(),
+      ));
+
+    }
+    return result;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       color: CustomColor.scaffoldBg,
+
       child: Column(
         children: [
           SizedBox(
             height: 16.sp,
           ),
+
           Text(
             "Projects",
             style: TextStyle(
@@ -27,18 +44,11 @@ class Projects extends StatelessWidget {
               color: CustomColor.blue,
             ),
           ),
-          // CardsProjectsItems(),
+
           //make a coruaousel slider for the projects
           CarouselSlider(
-            items:  [
-              for (int i = 0; i < ProjectsData.projects.length; i++)
-              <ProjectIndexCubit,ProjectIndexState>(
-                create: (context) => ProjectIndexCubit(i),
-                child: const ProjectsCarouselItem(),
-              ),
-              ProjectsCarouselItem(),
-              ProjectsCarouselItem(),
-            ], options: CarouselOptions(
+            items: _createProjectsList(),
+            options: CarouselOptions(
             height: MediaQuery
                 .of(context)
                 .size
@@ -54,6 +64,7 @@ class Projects extends StatelessWidget {
           ),
 
           ),
+
           SizedBox(
             height: 16.sp,
           )

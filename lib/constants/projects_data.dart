@@ -1,12 +1,6 @@
 
 abstract class ProjectsData {
-  static const List<Project> projects = const [
-    Project(
-      name: 'My Portfolio',
-      description: 'My personal web portfolio that showcases my projects and skills.',
-      image: 'assets/images/portfolioImage.png',
-      videoID: '',
-    ),
+  static const List<Project> projects = [
     //VCare app
     Project(
       name: 'VCare',
@@ -19,23 +13,30 @@ abstract class ProjectsData {
       name: 'Book Store',
       description:
           'A book store app that allows users to browse books, add them to cart, and purchase them. The app also allows users to search for books by name.',
-      image: 'assets/images/BookStore.jpg',
-      videoID: '',
+      image: 'assets/images/projects_images/BookStore.jpg',
+      videoID: 'TVoMrmlqIcg',
     ),
     //deraya education
     Project(
       name: 'Deraya Education',
       description:
           'A mobile app that allows students to access their courses and buy them.',
-      image: 'assets/images/Deraya.jpg',
+      image: 'assets/images/projects_images/Deraya.jpg',
       videoID: 'nlcf5ZwMXng',
+    ),
+    Project(
+      name: 'My Portfolio',
+      description: 'My personal web portfolio that showcases my projects and skills.',
+      image: 'assets/images/projects_images/protfolioImage.png',
+      videoID: '',
+      hasVideo: false,
     ),
     //simple chat app with firebase
     Project(
       name: 'Chat App',
       description:
           'A chat app that allows users to chat with each other in real-time using Firebase.',
-      image: 'assets/images/chat_app.jpeg',
+      image: 'assets/images/projects_images/chat_app.jpeg',
       videoID: 'EoL9kQDW_NM',
     ),
 
@@ -50,9 +51,10 @@ abstract class ProjectsData {
 
 }
 class Project {
-  const Project({required this.name, required this.description, required this.image, required this.videoID});
+  const Project({this.hasVideo=true, required this.name, required this.description, required this.image, required this.videoID});
   final String name;
   final String description;
   final String image;
   final String videoID;
+  final bool hasVideo;
 }

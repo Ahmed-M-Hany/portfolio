@@ -2,21 +2,22 @@
 
 import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:portfolio/constants/skills_data.dart';
+import 'package:portfolio/pages/sections/skills_section/cubit/skill_index_cubit.dart';
 
 import '../../../../constants/colors.dart';
 import 'blue_layer.dart';
 import 'package:flip_card/flip_card.dart';
 class SkillItem extends StatelessWidget {
-   SkillItem(
-      {super.key, required this.skillName, this.imagePath, this.color});
-  final String skillName;
-  final String? imagePath;
-  final Color? color;
+   SkillItem();
   final GlobalKey<FlipCardState> cardKey =  GlobalKey<FlipCardState>();
   //controller
   @override
   Widget build(BuildContext context) {
+    var cubit = BlocProvider.of<SkillIndexCubit>(context);
+    var skill=SkillsData.skills[cubit.index];
     // TODO: implement build
     return SizedBox(
       height: 80.sp,
@@ -43,21 +44,20 @@ class SkillItem extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  if (imagePath != null)
                     Stack(
                       children: [
                         Image.asset(
-                          imagePath!,
+                          skill.iconPath,
                           height: 30.sp,
                           width: 20.sp,
                           fit: BoxFit.contain,
                           // color: color,
                         ),
-                        BlueLayer(imagePath: imagePath, color: color),
+                        BlueLayer(imagePath: skill.iconPath, color: CustomColor.blue),
                       ],
                     ),
                   Text(
-                    skillName,
+                    skill.name,
                     style: TextStyle(
                       fontSize: 8.sp,
                     ),
@@ -75,7 +75,7 @@ class SkillItem extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Skill Description"),
+                  Text(skill.description),
                 ],
               ),
             ),

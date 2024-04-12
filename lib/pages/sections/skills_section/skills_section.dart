@@ -1,13 +1,26 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:portfolio/constants/skills_data.dart';
+import 'package:portfolio/pages/sections/skills_section/cubit/skill_index_cubit.dart';
 import 'package:portfolio/pages/sections/skills_section/section_widgets/skill_item.dart';
 
 import '../../../constants/colors.dart';
 
 class Skills extends StatelessWidget {
   const Skills({super.key});
+  _createSkillList(){
+    List<Widget> result=[];
+    for(int i=0;i<SkillsData.skills.length;i++){
+      result.add(BlocProvider<SkillIndexCubit>(
+        create: (context) => SkillIndexCubit(index: i),
+        child:  SkillItem(),
+      ));
+    }
+    return result;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,53 +43,7 @@ class Skills extends StatelessWidget {
           Wrap(
             alignment: WrapAlignment.center,
             spacing: 4.sp,
-            children:  [
-              SkillItem(
-                color: CustomColor.blue,
-                skillName: "Flutter",
-                imagePath: "assets/images/flutter.png",
-              ),
-              SkillItem(
-                color: CustomColor.blue,
-                skillName: "Dart",
-                imagePath: "assets/images/dart.png",
-              ),
-              SkillItem(
-                color: CustomColor.blue,
-                skillName: "Firebase",
-                imagePath: "assets/images/firebase.png",
-              ),
-              SkillItem(
-                color: CustomColor.blue,
-                skillName: "Git/Github",
-                imagePath: "assets/images/git.png",
-              ),
-              SkillItem(
-                color: CustomColor.blue,
-                skillName: "Figma",
-                imagePath: "assets/images/figma.png",
-              ),
-              SkillItem(
-                color: CustomColor.blue,
-                imagePath: "assets/images/logo.webp",
-                skillName: "bloc",
-              ),
-              SkillItem(
-                color: CustomColor.blue,
-                imagePath: "assets/images/responsive.png",
-                skillName: "Responsive Design",
-              ),
-              SkillItem(
-                color: CustomColor.blue,
-                imagePath: "assets/images/architecture.png",
-                skillName: "MVVM",
-              ),
-              SkillItem(
-                color: CustomColor.blue,
-                imagePath: "assets/images/api.png",
-                skillName: "Rest APIs",
-              ),
-            ],
+            children:  _createSkillList(),
           ),
           SizedBox(
             height: 16.sp,
