@@ -45,6 +45,10 @@ dependencies:
   carousel_slider: ^4.2.1
   expandable_text: ^2.3.0
   web: ^0.5.1
+  flutter_widget_from_html: ^0.9.1
+  flip_card: ^0.7.0
+  bloc: ^8.1.4
+  flutter_bloc: ^8.1.5
 
 
 dev_dependencies:
@@ -71,6 +75,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/projects_images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

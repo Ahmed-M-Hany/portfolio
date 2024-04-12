@@ -2,9 +2,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../constants/nav_items_strings.dart';
+import '../../constants/nav_items_strings.dart';
+import '../home_page.dart';
 import 'logo.dart';
-import '../pages/home_page.dart';
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
     super.key,

@@ -1,7 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../constants/colors.dart';
+import '../../constants/colors.dart';
 
 class Logo extends StatelessWidget {
   const Logo({super.key, required this.logoText, this.onTap});

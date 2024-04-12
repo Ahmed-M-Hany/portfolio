@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/widgets/logo.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../../constants/colors.dart';
+import '../../constants/nav_items_strings.dart';
+import '../home_page.dart';
 
-import '../constants/colors.dart';
-import '../constants/nav_items_strings.dart';
-import '../pages/home_page.dart';
 
 class HeaderDesktop extends StatelessWidget {
   const HeaderDesktop({super.key});
