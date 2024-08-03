@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../constants/colors.dart';
 
@@ -9,7 +10,7 @@ class HeaderMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
+      height: 50.h,
       width: double.infinity,
       decoration: BoxDecoration(
         gradient: const LinearGradient(colors: [
@@ -27,7 +28,7 @@ class HeaderMobile extends StatelessWidget {
             onPressed: () async {
               //use url launcher to launch the whatsapp link
               await launchUrl(Uri.parse(
-                  "https://drive.google.com/file/d/1ZzOqeCgHyW7yPB7R6nGE8gAoVwdy8X5Z/view?usp=sharing"));
+                  "https://drive.google.com/drive/folders/1nxdiptOQqq1yIV_OIjZOzLH8kF838Bq-?usp=sharing"));
             },
             style: TextButton.styleFrom(
               padding: const EdgeInsets.symmetric(

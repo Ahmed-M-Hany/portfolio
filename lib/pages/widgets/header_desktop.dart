@@ -30,7 +30,7 @@ class HeaderDesktop extends StatelessWidget {
             onPressed: () async {
               //use url launcher to launch the whatsapp link
               await launchUrl(Uri.parse(
-                  "https://drive.google.com/file/d/1ZzOqeCgHyW7yPB7R6nGE8gAoVwdy8X5Z/view?usp=sharing"));
+                  "https://drive.google.com/drive/folders/1nxdiptOQqq1yIV_OIjZOzLH8kF838Bq-?usp=sharing"));
             },
             style: TextButton.styleFrom(
               backgroundColor: CustomColor.blue,

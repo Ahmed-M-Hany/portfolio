@@ -1,5 +1,6 @@
 
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,7 +12,7 @@ import '../../../../constants/colors.dart';
 import 'blue_layer.dart';
 import 'package:flip_card/flip_card.dart';
 class SkillItem extends StatelessWidget {
-   SkillItem();
+   SkillItem({super.key});
   final GlobalKey<FlipCardState> cardKey =  GlobalKey<FlipCardState>();
   //controller
   @override
@@ -70,13 +71,27 @@ class SkillItem extends StatelessWidget {
             elevation: 10,
             surfaceTintColor: CustomColor.bgLight2,
             color: CustomColor.bgLight2,
-            child: Padding(
-              padding: EdgeInsets.all(8.sp),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(skill.description),
-                ],
+            child: SizedBox(
+              height: 80.sp,
+              width: 66.sp,
+              child: Padding(
+                padding: EdgeInsets.all(8.sp),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Center(
+                        child: AutoSizeText(
+                          skill.description,
+                          maxLines: 10,
+                          textAlign: TextAlign.start,
+                          minFontSize: 8,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

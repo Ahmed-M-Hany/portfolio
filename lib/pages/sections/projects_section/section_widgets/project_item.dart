@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -20,7 +21,7 @@ class ProjectsCarouselItem extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height * 0.6,
       margin: EdgeInsets.all(4.sp),
-      padding: EdgeInsets.all(4.sp),
+      padding: EdgeInsets.all(16.sp),
       decoration: BoxDecoration(
         color: CustomColor.bgLight1,
         borderRadius: BorderRadius.circular(8.r),
@@ -66,7 +67,8 @@ class ProjectDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Expanded(
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -91,6 +93,7 @@ class ProjectPreview extends StatelessWidget {
     var cubit = BlocProvider.of<ProjectIndexCubit>(context);
     var currentProject=ProjectsData.projects[cubit.index];
     return Expanded(
+      flex: MediaQuery.of(context).size.width>600?1:2,
       child: Center(
         child: InkWell(
           enableFeedback: true,
@@ -103,12 +106,13 @@ class ProjectPreview extends StatelessWidget {
           },
 
           child: Stack(
+            alignment: Alignment.center,
             children: [
               ClipRRect(
                 borderRadius:  BorderRadius.circular(20.r),
                 child: Image.asset(
                   currentProject.image,
-                  height: 200.sp,
+
                 ),
               ),
 
@@ -138,7 +142,7 @@ class BlueYoutubeButton extends StatelessWidget {
       right: 0,
       child: Icon(
         FontAwesomeIcons.youtube,
-        size: 25.sp,
+        size: 28.sp,
         color: CustomColor.blue.withOpacity(0.8),
       ),
     );
@@ -159,7 +163,6 @@ class BlackLayer extends StatelessWidget {
       borderRadius: BorderRadius.circular(20.r),
       child: Image.asset(
         currentProject.image,
-        height: 200.sp,
         color: CustomColor.bgLight2.withOpacity(0.3),
       ),
     );
@@ -174,10 +177,17 @@ class ProjectDescription extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<ProjectIndexCubit>(context);
-    return Text(
-      ProjectsData.projects[cubit.index].description,
-      maxLines: 5,
-      overflow: TextOverflow.ellipsis,
+    return Expanded(
+      flex: MediaQuery.of(context).size.width>600?1:0,
+      child: Text(
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 8.sp,
+        ),
+        maxLines: 10,
+        ProjectsData.projects[cubit.index].description,
+        overflow: TextOverflow.ellipsis,
+      ),
     );
   }
 }
@@ -190,15 +200,12 @@ class ProjectTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var cubit =BlocProvider.of<ProjectIndexCubit>(context);
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 12.0),
-      child: Text(
-        ProjectsData.projects[cubit.index].name,
-        style: TextStyle(
-          fontSize: 12.sp,
-          fontWeight: FontWeight.bold,
-          color: CustomColor.blue,
-        ),
+    return Text(
+      ProjectsData.projects[cubit.index].name,
+      style: TextStyle(
+        fontSize: 14.sp,
+        fontWeight: FontWeight.bold,
+        color: CustomColor.blue,
       ),
     );
   }

@@ -41,6 +41,7 @@ class Projects extends StatelessWidget {
             "Projects",
             style: TextStyle(
               fontSize: 16.sp,
+              fontWeight: FontWeight.bold,
               color: CustomColor.blue,
             ),
           ),
@@ -49,17 +50,22 @@ class Projects extends StatelessWidget {
           CarouselSlider(
             items: _createProjectsList(),
             options: CarouselOptions(
-            height: MediaQuery
+              autoPlayInterval: const Duration(seconds: 8),
+            height: MediaQuery.of(context).size.width>600?MediaQuery
                 .of(context)
                 .size
-                .height * 0.9,
+                .height * 0.8:MediaQuery
+                .of(context)
+                .size
+                .height * 0.5,
             aspectRatio: 1 / 1,
             autoPlay: true,
             initialPage: 0,
             enlargeCenterPage: true,
             pauseAutoPlayOnManualNavigate: true,
             pauseAutoPlayOnTouch: true,
-            clipBehavior: Clip.hardEdge,
+            clipBehavior: Clip.none,
+            pauseAutoPlayInFiniteScroll: true,
             enableInfiniteScroll: false,
           ),
 

@@ -82,7 +82,7 @@ class MainSection extends StatelessWidget {
                       onPressed: () async {
                         //use url launcher to launch the mailto link
                         await launchUrl(Uri.parse(
-                            "https://www.linkedin.com/in/%D8%A7%D8%AD%D9%85%D8%AF-%D9%87%D8%A7%D9%86%D9%8A-3a86351b8/"));
+                            "https://www.linkedin.com/in/ahmed-hany-3a86351b8/"));
                       },
                       icon: FaIcon(
                         FontAwesomeIcons.linkedinIn,
