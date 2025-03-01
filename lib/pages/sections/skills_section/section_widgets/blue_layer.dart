@@ -1,7 +1,6 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BlueLayer extends StatelessWidget {
   const BlueLayer({
@@ -17,8 +16,8 @@ class BlueLayer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       imagePath!,
-      height: 30.sp,
-      width: 20.sp,
+      height: 30,
+      width: 20,
       fit: BoxFit.contain,
       color: color?.withOpacity(0.8),
     );

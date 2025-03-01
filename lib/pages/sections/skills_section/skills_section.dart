@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio/constants/skills_data.dart';
 import 'package:portfolio/pages/sections/skills_section/cubit/skill_index_cubit.dart';
 import 'package:portfolio/pages/sections/skills_section/section_widgets/skill_item.dart';
@@ -26,28 +25,28 @@ class Skills extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 16.sp),
+      padding: EdgeInsets.symmetric(horizontal: 16),
       color: CustomColor.bgLight1,
       child: Column(
         children: [
           SizedBox(
-            height: 16.sp,
+            height: 16,
           ),
           Text(
             "Skills",
             style: TextStyle(
-              fontSize: 16.sp,
+              fontSize: 16,
               fontWeight: FontWeight.bold,
               color: CustomColor.blue,
             ),
           ),
           Wrap(
             alignment: WrapAlignment.center,
-            spacing: 4.sp,
+            spacing: 4,
             children:  _createSkillList(),
           ),
           SizedBox(
-            height: 16.sp,
+            height: 16,
           ),
         ],
       ),
