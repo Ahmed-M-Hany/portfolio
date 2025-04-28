@@ -8,13 +8,13 @@ class MainSection extends StatelessWidget {
   const MainSection({
     super.key,
   });
+
   @override
   Widget build(BuildContext context) {
     return Wrap(
       alignment: WrapAlignment.spaceAround,
-      textDirection: TextDirection.rtl,
-      direction: Axis.horizontal,
       crossAxisAlignment: WrapCrossAlignment.center,
+      textDirection: TextDirection.rtl,
       children: [
         Container(
           decoration: BoxDecoration(
@@ -31,16 +31,31 @@ class MainSection extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               CircleAvatar(
-                radius: 50,
+                radius: 210,
                 backgroundColor: CustomColor.blue,
                 child: CircleAvatar(
-                  radius: 40,
+                  radius: 170,
                   backgroundColor: CustomColor.scaffoldBg,
                 ),
               ),
-              Image.asset(
-                "assets/images/protfolioImage.png",
-                height: 120,
+              ShaderMask(
+                shaderCallback: (Rect bounds) {
+                  return LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Colors.black,
+                      Colors.transparent,
+                    ],
+                    stops: [0.9, 1.0],
+                  ).createShader(bounds);
+                },
+                blendMode: BlendMode.dstIn,
+                child: Image.asset(
+                  "assets/images/protfolioImage.png",
+                  height: 500,
+                  fit: BoxFit.cover,
+                ),
               ),
             ],
           ),
@@ -56,7 +71,7 @@ class MainSection extends StatelessWidget {
                 Text(
                   "Flutter Developer",
                   style: TextStyle(
-                    fontSize: 10,
+                    fontSize: 32,
                   ),
                 ),
                 Row(
@@ -69,12 +84,12 @@ class MainSection extends StatelessWidget {
                         await launchUrl(Uri.parse(
                             "https://api.whatsapp.com/send/?phone=201154951688&text=Hello"));
                       },
-                      iconSize: 10,
+                      iconSize: 28,
                       icon: FaIcon(FontAwesomeIcons.whatsapp,
                           color: Colors.green),
                     ),
                     IconButton(
-                      iconSize: 10,
+                      iconSize: 28,
 
                       padding: EdgeInsets.zero,
                       //use twitter icon from font awesome
@@ -89,7 +104,7 @@ class MainSection extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      iconSize: 10,
+                      iconSize: 28,
 
                       onPressed: () async {
                         //use url launcher to launch the mailto link
@@ -101,7 +116,7 @@ class MainSection extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      iconSize: 10,
+                      iconSize: 28,
 
                       //use twitter icon from font awesome
                       onPressed: () async {

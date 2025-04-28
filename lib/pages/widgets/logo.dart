@@ -8,22 +8,22 @@ class Logo extends StatelessWidget {
   final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.sizeOf(context).width;
     return DefaultTextStyle(
       style:TextStyle(
         fontFamily: 'NextArt',
         color: CustomColor.blue,
         fontWeight: FontWeight.w700,
-        fontSize: 18,
+        fontSize: width>500?64:54,
       ),
       child: AnimatedTextKit(
         onTap: onTap,
-        pause: const Duration(milliseconds: 0),
         totalRepeatCount: 1,
         displayFullTextOnTap: true,
         animatedTexts: [
           TyperAnimatedText(
-            curve: Curves.bounceInOut,
-            speed: const Duration(milliseconds: 600),
+            curve: Curves.linear,
+            speed: const Duration(milliseconds: 250),
             logoText,
           ),
         ],

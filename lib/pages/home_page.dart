@@ -25,7 +25,6 @@ class HomePageState extends State<HomePage> {
     const Skills(),
     const Projects()
   ];
-  double iconsSize = 10;
   Future<void> scrollToIndex(int index) async {
     await scrollController.scrollTo(
       index: index,
