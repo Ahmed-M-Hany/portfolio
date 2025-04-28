@@ -1,10 +1,8 @@
 
 
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio/constants/skills_data.dart';
 import 'package:portfolio/pages/sections/skills_section/cubit/skill_index_cubit.dart';
 
@@ -21,8 +19,8 @@ class SkillItem extends StatelessWidget {
     var skill=SkillsData.skills[cubit.index];
     // TODO: implement build
     return SizedBox(
-      height: 80.sp,
-      width: 66.sp,
+      height: 80,
+      width: 66,
       child: MouseRegion(
         onEnter: (_) async{
           if(cardKey.currentState!.isFront){
@@ -41,7 +39,7 @@ class SkillItem extends StatelessWidget {
             surfaceTintColor: CustomColor.bgLight2,
             color: CustomColor.bgLight2,
             child: Padding(
-              padding: EdgeInsets.all(8.sp),
+              padding: EdgeInsets.all(8),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -49,8 +47,8 @@ class SkillItem extends StatelessWidget {
                       children: [
                         Image.asset(
                           skill.iconPath,
-                          height: 30.sp,
-                          width: 20.sp,
+                          height: 30,
+                          width: 20,
                           fit: BoxFit.contain,
                           // color: color,
                         ),
@@ -60,7 +58,7 @@ class SkillItem extends StatelessWidget {
                   Text(
                     skill.name,
                     style: TextStyle(
-                      fontSize: 8.sp,
+                      fontSize: 8,
                     ),
                   ),
                 ],
@@ -72,10 +70,10 @@ class SkillItem extends StatelessWidget {
             surfaceTintColor: CustomColor.bgLight2,
             color: CustomColor.bgLight2,
             child: SizedBox(
-              height: 80.sp,
-              width: 66.sp,
+              height: 80,
+              width: 66,
               child: Padding(
-                padding: EdgeInsets.all(8.sp),
+                padding: EdgeInsets.all(8),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

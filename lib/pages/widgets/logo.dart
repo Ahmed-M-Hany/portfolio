@@ -1,6 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../constants/colors.dart';
 
 class Logo extends StatelessWidget {
@@ -14,7 +13,7 @@ class Logo extends StatelessWidget {
         fontFamily: 'NextArt',
         color: CustomColor.blue,
         fontWeight: FontWeight.w700,
-        fontSize: 18.sp,
+        fontSize: 18,
       ),
       child: AnimatedTextKit(
         onTap: onTap,

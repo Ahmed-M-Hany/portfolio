@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../constants/colors.dart';
@@ -23,8 +22,8 @@ class MainSection extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 color: CustomColor.blue.withOpacity(0.5),
-                blurRadius: 25.sp,
-                spreadRadius: 2.sp,
+                blurRadius: 25,
+                spreadRadius: 2,
               ),
             ],
           ),
@@ -32,16 +31,16 @@ class MainSection extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               CircleAvatar(
-                radius: 50.sp,
+                radius: 50,
                 backgroundColor: CustomColor.blue,
                 child: CircleAvatar(
-                  radius: 40.sp,
+                  radius: 40,
                   backgroundColor: CustomColor.scaffoldBg,
                 ),
               ),
               Image.asset(
                 "assets/images/protfolioImage.png",
-                height: 120.sp,
+                height: 120,
               ),
             ],
           ),
@@ -57,7 +56,7 @@ class MainSection extends StatelessWidget {
                 Text(
                   "Flutter Developer",
                   style: TextStyle(
-                    fontSize: 10.sp,
+                    fontSize: 10,
                   ),
                 ),
                 Row(
@@ -70,12 +69,12 @@ class MainSection extends StatelessWidget {
                         await launchUrl(Uri.parse(
                             "https://api.whatsapp.com/send/?phone=201154951688&text=Hello"));
                       },
-                      iconSize: 10.sp,
+                      iconSize: 10,
                       icon: FaIcon(FontAwesomeIcons.whatsapp,
                           color: Colors.green),
                     ),
                     IconButton(
-                      iconSize: 10.sp,
+                      iconSize: 10,
 
                       padding: EdgeInsets.zero,
                       //use twitter icon from font awesome
@@ -90,7 +89,7 @@ class MainSection extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      iconSize: 10.sp,
+                      iconSize: 10,
 
                       onPressed: () async {
                         //use url launcher to launch the mailto link
@@ -102,7 +101,7 @@ class MainSection extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      iconSize: 10.sp,
+                      iconSize: 10,
 
                       //use twitter icon from font awesome
                       onPressed: () async {

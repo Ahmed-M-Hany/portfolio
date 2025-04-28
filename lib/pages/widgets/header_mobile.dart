@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../constants/colors.dart';
 
@@ -10,7 +9,7 @@ class HeaderMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50.h,
+      height: 50,
       width: double.infinity,
       decoration: BoxDecoration(
         gradient: const LinearGradient(colors: [

@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio/constants/projects_data.dart';
 import 'package:portfolio/pages/sections/projects_section/cubit/project_index_cubit.dart';
 import 'package:portfolio/pages/sections/projects_section/section_widgets/project_item.dart';
@@ -34,13 +33,13 @@ class Projects extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: 16.sp,
+            height: 16,
           ),
 
           Text(
             "Projects",
             style: TextStyle(
-              fontSize: 16.sp,
+              fontSize: 16,
               fontWeight: FontWeight.bold,
               color: CustomColor.blue,
             ),
@@ -72,7 +71,7 @@ class Projects extends StatelessWidget {
           ),
 
           SizedBox(
-            height: 16.sp,
+            height: 16,
           )
         ],
       ),

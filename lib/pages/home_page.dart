@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/pages/sections/main_section/main_section.dart';
 import 'package:portfolio/pages/sections/projects_section/project_section.dart';
@@ -26,7 +25,7 @@ class HomePageState extends State<HomePage> {
     const Skills(),
     const Projects()
   ];
-  double iconsSize = 10.sp;
+  double iconsSize = 10;
   Future<void> scrollToIndex(int index) async {
     await scrollController.scrollTo(
       index: index,

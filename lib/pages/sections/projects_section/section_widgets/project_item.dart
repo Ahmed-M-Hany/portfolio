@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/constants/projects_data.dart';
 import 'package:portfolio/pages/sections/projects_section/cubit/project_index_cubit.dart';
@@ -20,16 +19,16 @@ class ProjectsCarouselItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.6,
-      margin: EdgeInsets.all(4.sp),
-      padding: EdgeInsets.all(16.sp),
+      margin: EdgeInsets.all(4),
+      padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: CustomColor.bgLight1,
-        borderRadius: BorderRadius.circular(8.r),
+        borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
             color: CustomColor.blue.withOpacity(0.3),
-            blurRadius: 2.sp,
-            spreadRadius: 2.sp,
+            blurRadius: 2,
+            spreadRadius: 2,
           ),
         ],
       ),
@@ -109,7 +108,7 @@ class ProjectPreview extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               ClipRRect(
-                borderRadius:  BorderRadius.circular(20.r),
+                borderRadius:  BorderRadius.circular(20),
                 child: Image.asset(
                   currentProject.image,
 
@@ -142,7 +141,7 @@ class BlueYoutubeButton extends StatelessWidget {
       right: 0,
       child: Icon(
         FontAwesomeIcons.youtube,
-        size: 28.sp,
+        size: 28,
         color: CustomColor.blue.withOpacity(0.8),
       ),
     );
@@ -160,7 +159,7 @@ class BlackLayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(20.r),
+      borderRadius: BorderRadius.circular(20),
       child: Image.asset(
         currentProject.image,
         color: CustomColor.bgLight2.withOpacity(0.3),
@@ -182,7 +181,7 @@ class ProjectDescription extends StatelessWidget {
       child: Text(
         textAlign: TextAlign.center,
         style: TextStyle(
-          fontSize: 8.sp,
+          fontSize: 8,
         ),
         maxLines: 10,
         ProjectsData.projects[cubit.index].description,
@@ -203,7 +202,7 @@ class ProjectTitle extends StatelessWidget {
     return Text(
       ProjectsData.projects[cubit.index].name,
       style: TextStyle(
-        fontSize: 14.sp,
+        fontSize: 14,
         fontWeight: FontWeight.bold,
         color: CustomColor.blue,
       ),
