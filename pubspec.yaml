@@ -39,10 +39,9 @@ dependencies:
   scrollable_positioned_list: ^0.3.8
   animated_text_kit: ^4.2.2
   font_awesome_flutter: ^10.7.0
-  flutter_screenutil: ^5.9.0
   google_fonts: ^6.2.1
   url_launcher: ^6.2.5
-  carousel_slider: ^4.2.1
+  carousel_slider: ^5.0.0
   expandable_text: ^2.3.0
   web: ^0.5.1
   flutter_widget_from_html: ^0.9.1
@@ -50,6 +49,7 @@ dependencies:
   bloc: ^8.1.4
   flutter_bloc: ^8.1.5
   auto_size_text: ^3.0.0
+  lottie: ^3.3.1
 
 
 dev_dependencies:
@@ -77,6 +77,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/projects_images/
+    - assets/lottie/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

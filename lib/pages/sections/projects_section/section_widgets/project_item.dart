@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/constants/projects_data.dart';
 import 'package:portfolio/pages/sections/projects_section/cubit/project_index_cubit.dart';
@@ -19,17 +18,17 @@ class ProjectsCarouselItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.6,
-      margin: EdgeInsets.all(4.sp),
-      padding: EdgeInsets.all(16.sp),
+      margin: EdgeInsets.all(4),
+      padding: EdgeInsets.all(16),
+      alignment: Alignment.center,
       decoration: BoxDecoration(
         color: CustomColor.bgLight1,
-        borderRadius: BorderRadius.circular(8.r),
+        borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
             color: CustomColor.blue.withOpacity(0.3),
-            blurRadius: 2.sp,
-            spreadRadius: 2.sp,
+            blurRadius: 2,
+            spreadRadius: 2,
           ),
         ],
       ),
@@ -49,6 +48,8 @@ class ProjectItemContent extends StatelessWidget {
     //flex can be a column or row depending on the {direction}
     return Flex(
       direction: MediaQuery.of(context).size.width>600?Axis.horizontal:Axis.vertical,
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
 
         ProjectPreview(),
@@ -67,17 +68,24 @@ class ProjectDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 8.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-
-          ProjectTitle(),
-
-          ProjectDescription(),
-
-        ],
+    bool isMobile=
+        MediaQuery.of(context).size.width < 600; // Check if the screen is mobile
+    return Expanded(
+      flex: isMobile?0:1,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+          spacing: 8,
+          children: [
+      
+            ProjectTitle(),
+      
+            ProjectDescription(),
+      
+          ],
+        ),
       ),
     );
   }
@@ -109,7 +117,7 @@ class ProjectPreview extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               ClipRRect(
-                borderRadius:  BorderRadius.circular(20.r),
+                borderRadius:  BorderRadius.circular(20),
                 child: Image.asset(
                   currentProject.image,
 
@@ -142,7 +150,7 @@ class BlueYoutubeButton extends StatelessWidget {
       right: 0,
       child: Icon(
         FontAwesomeIcons.youtube,
-        size: 28.sp,
+        size: 70,
         color: CustomColor.blue.withOpacity(0.8),
       ),
     );
@@ -160,7 +168,7 @@ class BlackLayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(20.r),
+      borderRadius: BorderRadius.circular(20),
       child: Image.asset(
         currentProject.image,
         color: CustomColor.bgLight2.withOpacity(0.3),
@@ -176,18 +184,17 @@ class ProjectDescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isMobile=
+        MediaQuery.of(context).size.width < 600; // Check if the screen is mobile
     var cubit = BlocProvider.of<ProjectIndexCubit>(context);
-    return Expanded(
-      flex: MediaQuery.of(context).size.width>600?1:0,
-      child: Text(
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 8.sp,
-        ),
-        maxLines: 10,
-        ProjectsData.projects[cubit.index].description,
-        overflow: TextOverflow.ellipsis,
+    return Text(
+      textAlign: TextAlign.start,
+      style: TextStyle(
+        fontSize: 16,
       ),
+      maxLines: 10,
+      ProjectsData.projects[cubit.index].description,
+      overflow: TextOverflow.ellipsis,
     );
   }
 }
@@ -199,11 +206,13 @@ class ProjectTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isMobile=
+        MediaQuery.of(context).size.width < 600; // Check if the screen is mobile
     var cubit =BlocProvider.of<ProjectIndexCubit>(context);
     return Text(
       ProjectsData.projects[cubit.index].name,
       style: TextStyle(
-        fontSize: 14.sp,
+        fontSize: isMobile?24:36,
         fontWeight: FontWeight.bold,
         color: CustomColor.blue,
       ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../constants/colors.dart';
@@ -9,13 +8,15 @@ class MainSection extends StatelessWidget {
   const MainSection({
     super.key,
   });
+
   @override
   Widget build(BuildContext context) {
+    bool isMobile=
+        MediaQuery.of(context).size.width < 600; // Check if the screen is mobile
     return Wrap(
       alignment: WrapAlignment.spaceAround,
-      textDirection: TextDirection.rtl,
-      direction: Axis.horizontal,
       crossAxisAlignment: WrapCrossAlignment.center,
+      textDirection: TextDirection.rtl,
       children: [
         Container(
           decoration: BoxDecoration(
@@ -23,8 +24,8 @@ class MainSection extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 color: CustomColor.blue.withOpacity(0.5),
-                blurRadius: 25.sp,
-                spreadRadius: 2.sp,
+                blurRadius: 25,
+                spreadRadius: 2,
               ),
             ],
           ),
@@ -32,16 +33,31 @@ class MainSection extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               CircleAvatar(
-                radius: 50.sp,
+                radius: isMobile?170:210,
                 backgroundColor: CustomColor.blue,
                 child: CircleAvatar(
-                  radius: 40.sp,
+                  radius: isMobile?140:170,
                   backgroundColor: CustomColor.scaffoldBg,
                 ),
               ),
-              Image.asset(
-                "assets/images/protfolioImage.png",
-                height: 120.sp,
+              ShaderMask(
+                shaderCallback: (Rect bounds) {
+                  return LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Colors.black,
+                      Colors.transparent,
+                    ],
+                    stops: [0.9, 1.0],
+                  ).createShader(bounds);
+                },
+                blendMode: BlendMode.dstIn,
+                child: Image.asset(
+                  "assets/images/protfolioImage.png",
+                  height: isMobile?400:500,
+                  fit: BoxFit.cover,
+                ),
               ),
             ],
           ),
@@ -54,10 +70,10 @@ class MainSection extends StatelessWidget {
                 const Logo(
                   logoText: "Ahmed Hany",
                 ),
-                Text(
+                 Text(
                   "Flutter Developer",
                   style: TextStyle(
-                    fontSize: 10.sp,
+                    fontSize: isMobile?16:32,
                   ),
                 ),
                 Row(
@@ -68,49 +84,49 @@ class MainSection extends StatelessWidget {
                       onPressed: () async {
                         //use url launcher to launch the whatsapp link
                         await launchUrl(Uri.parse(
-                            "https://api.whatsapp.com/send/?phone=201154951688&text=Hello"));
+                            "https://api.whatsapp.com/send/?phone=201063029878"));
                       },
-                      iconSize: 10.sp,
-                      icon: FaIcon(FontAwesomeIcons.whatsapp,
+                      iconSize: isMobile?16:28,
+                      icon: const FaIcon(FontAwesomeIcons.whatsapp,
                           color: Colors.green),
                     ),
                     IconButton(
-                      iconSize: 10.sp,
+                      iconSize: isMobile?16:28,
 
                       padding: EdgeInsets.zero,
                       //use twitter icon from font awesome
                       onPressed: () async {
                         //use url launcher to launch the mailto link
                         await launchUrl(Uri.parse(
-                            "https://www.linkedin.com/in/ahmed-hany-3a86351b8/"));
+                            "https://www.linkedin.com/in/ahmed-m-hany/"));
                       },
-                      icon: FaIcon(
+                      icon: const FaIcon(
                         FontAwesomeIcons.linkedinIn,
                         color: Colors.blue,
                       ),
                     ),
                     IconButton(
-                      iconSize: 10.sp,
+                      iconSize: isMobile?16:28,
 
                       onPressed: () async {
                         //use url launcher to launch the mailto link
                         await launchUrl(Uri.parse(
-                            "https://github.com/ahmedhany20200050"));
+                            "https://github.com/ahmed-m-hany"));
                       },
-                      icon: FaIcon(
+                      icon: const FaIcon(
                         FontAwesomeIcons.github,
                       ),
                     ),
                     IconButton(
-                      iconSize: 10.sp,
+                      iconSize: isMobile?16:28,
 
                       //use twitter icon from font awesome
                       onPressed: () async {
                         //use url launcher to launch the mailto link
                         await launchUrl(Uri.parse(
-                            "mailto:ahmedhany20200050@gmail.com?subject=Flutter Development&body=Hello"));
+                            "mailto:ahmed.m.hany78@gmail.com?subject=Flutter Development"));
                       },
-                      icon: FaIcon(
+                      icon: const FaIcon(
                         FontAwesomeIcons.envelope,
                         color: Colors.red,
                       ),
