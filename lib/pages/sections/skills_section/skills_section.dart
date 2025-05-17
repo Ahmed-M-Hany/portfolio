@@ -23,6 +23,8 @@ class Skills extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isMobile=
+        MediaQuery.of(context).size.width < 600; // Check if the screen is mobile
     return Container(
       width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: 16),
@@ -35,7 +37,8 @@ class Skills extends StatelessWidget {
           Text(
             "Skills",
             style: TextStyle(
-              fontSize: 64,
+              fontFamily: "NextArt",
+              fontSize: isMobile?32:50,
               fontWeight: FontWeight.bold,
               color: CustomColor.blue,
             ),

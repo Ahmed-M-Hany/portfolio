@@ -14,10 +14,12 @@ class BlueLayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isMobile=
+        MediaQuery.of(context).size.width < 600; // Check if the screen is mobile
     return Image.asset(
       imagePath!,
-      height: 30,
-      width: 20,
+      height: isMobile?90:150,
+      width: isMobile?60:100,
       fit: BoxFit.contain,
       color: color?.withOpacity(0.8),
     );

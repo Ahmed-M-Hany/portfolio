@@ -8,13 +8,14 @@ class Logo extends StatelessWidget {
   final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.sizeOf(context).width;
+    bool isMobile=
+        MediaQuery.of(context).size.width < 600; // Check if the screen is mobile
     return DefaultTextStyle(
       style:TextStyle(
         fontFamily: 'NextArt',
         color: CustomColor.blue,
         fontWeight: FontWeight.w700,
-        fontSize: width>500?64:54,
+        fontSize: isMobile?40:64,
       ),
       child: AnimatedTextKit(
         onTap: onTap,

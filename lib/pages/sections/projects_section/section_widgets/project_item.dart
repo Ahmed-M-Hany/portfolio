@@ -18,9 +18,9 @@ class ProjectsCarouselItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.6,
       margin: EdgeInsets.all(4),
       padding: EdgeInsets.all(16),
+      alignment: Alignment.center,
       decoration: BoxDecoration(
         color: CustomColor.bgLight1,
         borderRadius: BorderRadius.circular(8),
@@ -48,6 +48,8 @@ class ProjectItemContent extends StatelessWidget {
     //flex can be a column or row depending on the {direction}
     return Flex(
       direction: MediaQuery.of(context).size.width>600?Axis.horizontal:Axis.vertical,
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
 
         ProjectPreview(),
@@ -66,17 +68,24 @@ class ProjectDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 8.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-
-          ProjectTitle(),
-
-          ProjectDescription(),
-
-        ],
+    bool isMobile=
+        MediaQuery.of(context).size.width < 600; // Check if the screen is mobile
+    return Expanded(
+      flex: isMobile?0:1,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+          spacing: 8,
+          children: [
+      
+            ProjectTitle(),
+      
+            ProjectDescription(),
+      
+          ],
+        ),
       ),
     );
   }
@@ -141,7 +150,7 @@ class BlueYoutubeButton extends StatelessWidget {
       right: 0,
       child: Icon(
         FontAwesomeIcons.youtube,
-        size: 28,
+        size: 70,
         color: CustomColor.blue.withOpacity(0.8),
       ),
     );
@@ -175,18 +184,17 @@ class ProjectDescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isMobile=
+        MediaQuery.of(context).size.width < 600; // Check if the screen is mobile
     var cubit = BlocProvider.of<ProjectIndexCubit>(context);
-    return Expanded(
-      flex: MediaQuery.of(context).size.width>600?1:0,
-      child: Text(
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 8,
-        ),
-        maxLines: 10,
-        ProjectsData.projects[cubit.index].description,
-        overflow: TextOverflow.ellipsis,
+    return Text(
+      textAlign: TextAlign.start,
+      style: TextStyle(
+        fontSize: 16,
       ),
+      maxLines: 10,
+      ProjectsData.projects[cubit.index].description,
+      overflow: TextOverflow.ellipsis,
     );
   }
 }
@@ -198,11 +206,13 @@ class ProjectTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isMobile=
+        MediaQuery.of(context).size.width < 600; // Check if the screen is mobile
     var cubit =BlocProvider.of<ProjectIndexCubit>(context);
     return Text(
       ProjectsData.projects[cubit.index].name,
       style: TextStyle(
-        fontSize: 14,
+        fontSize: isMobile?24:36,
         fontWeight: FontWeight.bold,
         color: CustomColor.blue,
       ),

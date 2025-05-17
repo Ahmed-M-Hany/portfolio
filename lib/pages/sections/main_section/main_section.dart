@@ -11,6 +11,8 @@ class MainSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isMobile=
+        MediaQuery.of(context).size.width < 600; // Check if the screen is mobile
     return Wrap(
       alignment: WrapAlignment.spaceAround,
       crossAxisAlignment: WrapCrossAlignment.center,
@@ -31,10 +33,10 @@ class MainSection extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               CircleAvatar(
-                radius: 210,
+                radius: isMobile?170:210,
                 backgroundColor: CustomColor.blue,
                 child: CircleAvatar(
-                  radius: 170,
+                  radius: isMobile?140:170,
                   backgroundColor: CustomColor.scaffoldBg,
                 ),
               ),
@@ -53,7 +55,7 @@ class MainSection extends StatelessWidget {
                 blendMode: BlendMode.dstIn,
                 child: Image.asset(
                   "assets/images/protfolioImage.png",
-                  height: 500,
+                  height: isMobile?400:500,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -68,10 +70,10 @@ class MainSection extends StatelessWidget {
                 const Logo(
                   logoText: "Ahmed Hany",
                 ),
-                const Text(
+                 Text(
                   "Flutter Developer",
                   style: TextStyle(
-                    fontSize: 32,
+                    fontSize: isMobile?16:32,
                   ),
                 ),
                 Row(
@@ -82,21 +84,21 @@ class MainSection extends StatelessWidget {
                       onPressed: () async {
                         //use url launcher to launch the whatsapp link
                         await launchUrl(Uri.parse(
-                            "https://api.whatsapp.com/send/?phone=201154951688&text=Hello"));
+                            "https://api.whatsapp.com/send/?phone=201063029878"));
                       },
-                      iconSize: 28,
+                      iconSize: isMobile?16:28,
                       icon: const FaIcon(FontAwesomeIcons.whatsapp,
                           color: Colors.green),
                     ),
                     IconButton(
-                      iconSize: 28,
+                      iconSize: isMobile?16:28,
 
                       padding: EdgeInsets.zero,
                       //use twitter icon from font awesome
                       onPressed: () async {
                         //use url launcher to launch the mailto link
                         await launchUrl(Uri.parse(
-                            "https://www.linkedin.com/in/ahmed-hany-3a86351b8/"));
+                            "https://www.linkedin.com/in/ahmed-m-hany/"));
                       },
                       icon: const FaIcon(
                         FontAwesomeIcons.linkedinIn,
@@ -104,25 +106,25 @@ class MainSection extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      iconSize: 28,
+                      iconSize: isMobile?16:28,
 
                       onPressed: () async {
                         //use url launcher to launch the mailto link
                         await launchUrl(Uri.parse(
-                            "https://github.com/ahmedhany20200050"));
+                            "https://github.com/ahmed-m-hany"));
                       },
                       icon: const FaIcon(
                         FontAwesomeIcons.github,
                       ),
                     ),
                     IconButton(
-                      iconSize: 28,
+                      iconSize: isMobile?16:28,
 
                       //use twitter icon from font awesome
                       onPressed: () async {
                         //use url launcher to launch the mailto link
                         await launchUrl(Uri.parse(
-                            "mailto:ahmedhany20200050@gmail.com?subject=Flutter Development&body=Hello"));
+                            "mailto:ahmed.m.hany78@gmail.com?subject=Flutter Development"));
                       },
                       icon: const FaIcon(
                         FontAwesomeIcons.envelope,

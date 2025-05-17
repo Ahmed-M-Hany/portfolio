@@ -15,12 +15,14 @@ class SkillItem extends StatelessWidget {
   //controller
   @override
   Widget build(BuildContext context) {
+    bool isMobile=
+        MediaQuery.of(context).size.width < 600; // Check if the screen is mobile
     var cubit = BlocProvider.of<SkillIndexCubit>(context);
     var skill=SkillsData.skills[cubit.index];
     // TODO: implement build
     return SizedBox(
-      height: 80,
-      width: 66,
+      height: isMobile?160:240,
+      width: isMobile?120:180,
       child: MouseRegion(
         onEnter: (_) async{
           if(cardKey.currentState!.isFront){
@@ -39,7 +41,7 @@ class SkillItem extends StatelessWidget {
             surfaceTintColor: CustomColor.bgLight2,
             color: CustomColor.bgLight2,
             child: Padding(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -47,8 +49,8 @@ class SkillItem extends StatelessWidget {
                       children: [
                         Image.asset(
                           skill.iconPath,
-                          height: 30,
-                          width: 20,
+                          height: isMobile?90:150,
+                          width: isMobile?60:100,
                           fit: BoxFit.contain,
                           // color: color,
                         ),
@@ -57,8 +59,8 @@ class SkillItem extends StatelessWidget {
                     ),
                   Text(
                     skill.name,
-                    style: TextStyle(
-                      fontSize: 8,
+                    style: const TextStyle(
+                      fontSize: 16,
                     ),
                   ),
                 ],
@@ -70,8 +72,8 @@ class SkillItem extends StatelessWidget {
             surfaceTintColor: CustomColor.bgLight2,
             color: CustomColor.bgLight2,
             child: SizedBox(
-              height: 80,
-              width: 66,
+              height: 240,
+              width: 190,
               child: Padding(
                 padding: EdgeInsets.all(8),
                 child: Column(
