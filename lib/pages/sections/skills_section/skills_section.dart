@@ -35,7 +35,7 @@ class Skills extends StatelessWidget {
           Text(
             "Skills",
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 64,
               fontWeight: FontWeight.bold,
               color: CustomColor.blue,
             ),

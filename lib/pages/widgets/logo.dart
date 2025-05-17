@@ -23,7 +23,7 @@ class Logo extends StatelessWidget {
         animatedTexts: [
           TyperAnimatedText(
             curve: Curves.linear,
-            speed: const Duration(milliseconds: 250),
+            speed: const Duration(milliseconds: 80),
             logoText,
           ),
         ],

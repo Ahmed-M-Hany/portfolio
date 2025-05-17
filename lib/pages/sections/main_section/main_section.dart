@@ -68,7 +68,7 @@ class MainSection extends StatelessWidget {
                 const Logo(
                   logoText: "Ahmed Hany",
                 ),
-                Text(
+                const Text(
                   "Flutter Developer",
                   style: TextStyle(
                     fontSize: 32,
@@ -85,7 +85,7 @@ class MainSection extends StatelessWidget {
                             "https://api.whatsapp.com/send/?phone=201154951688&text=Hello"));
                       },
                       iconSize: 28,
-                      icon: FaIcon(FontAwesomeIcons.whatsapp,
+                      icon: const FaIcon(FontAwesomeIcons.whatsapp,
                           color: Colors.green),
                     ),
                     IconButton(
@@ -98,7 +98,7 @@ class MainSection extends StatelessWidget {
                         await launchUrl(Uri.parse(
                             "https://www.linkedin.com/in/ahmed-hany-3a86351b8/"));
                       },
-                      icon: FaIcon(
+                      icon: const FaIcon(
                         FontAwesomeIcons.linkedinIn,
                         color: Colors.blue,
                       ),
@@ -111,7 +111,7 @@ class MainSection extends StatelessWidget {
                         await launchUrl(Uri.parse(
                             "https://github.com/ahmedhany20200050"));
                       },
-                      icon: FaIcon(
+                      icon: const FaIcon(
                         FontAwesomeIcons.github,
                       ),
                     ),
@@ -124,7 +124,7 @@ class MainSection extends StatelessWidget {
                         await launchUrl(Uri.parse(
                             "mailto:ahmedhany20200050@gmail.com?subject=Flutter Development&body=Hello"));
                       },
-                      icon: FaIcon(
+                      icon: const FaIcon(
                         FontAwesomeIcons.envelope,
                         color: Colors.red,
                       ),
